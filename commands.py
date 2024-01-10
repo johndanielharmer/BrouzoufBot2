@@ -1,14 +1,8 @@
 import discord
 from discord.ext import commands
 from discord.ext import tasks
-import os
-from keepalive import keep_alive
-
-intents = discord.Intents.default()
-intents.message_content = True
-intents.members = True
-
-bot = commands.Bot(command_prefix='!', intents=intents)
+import botDefinition
+from botDefinition import bot
 
 @bot.command(name='speak')
 async def postBrouzouf(ctx):
