@@ -3,6 +3,8 @@ from discord.ext import commands
 from discord.ext import tasks
 import botDefinition
 from botDefinition import bot
+from diceModule import roll
+from diceModule import rolldroplow
 
 @bot.command(name='speak')
 async def postBrouzouf(ctx):
@@ -56,6 +58,25 @@ async def bruce(ctx):
 	await ctx.send(
 "https://cdn.discordapp.com/attachments/473829882858700814/884900693901717605/117127843_1151882928511651_1572153833735867530_n_1.gif"
 	)
+
+@bot.command(
+	name='roll',
+	help=
+	'Type in \'#d#\', where # is a positive whole number.'
+)
+async def rollWrapper(ctx, dice_to_roll: str):
+	await ctx.send(roll(ctx, dice_to_roll))
+
+@bot.command(
+	name='makeCharacter',
+	help=
+	'Rolls 6 4d6s, dropping lowest, and displaying.'
+)
+async def makeCharWrapper(ctx):
+	output = ">>> "
+	for i in range (6):
+		output = output + rolldroplow(ctx, "4d6", 1) + "\n"
+	await ctx.send(output)
 
 #THIS EVEN SWALLOWS ALL OTHER EVENTS
 #@bot.event
