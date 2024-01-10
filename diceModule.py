@@ -1,7 +1,3 @@
-import discord
-from discord.ext import commands
-from discord.ext import tasks
-
 import random
 
 def roll(ctx, dice_to_roll: str):
@@ -25,7 +21,6 @@ def roll(ctx, dice_to_roll: str):
 
 	totalList = [eval(i) for i in dice]
 	total = str(sum(totalList))
-	print(total)
 	
 	return (', '.join(dice) + ", Total = " + total)
 
