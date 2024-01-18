@@ -78,6 +78,12 @@ async def makeCharWrapper(ctx):
 		output = output + rolldroplow(ctx, "4d6", 1) + "\n"
 	await ctx.send(output)
 
+@bot.command(
+	name='bro', help='bro')
+async def broCommand(ctx):
+	await ctx.send("https://i.imgur.com/A6uW9s5.png")
+
+	
 #THIS EVEN SWALLOWS ALL OTHER EVENTS
 #@bot.event
 #async def on_message(message):
